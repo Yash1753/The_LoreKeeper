@@ -5,7 +5,12 @@ import dynamic from "next/dynamic";
 import { useChat } from "@ai-sdk/react";
 import { SiteHeader } from "@/components/site-header";
 import { ChatMessages } from "@/components/chat-messages";
-import { ChatInput } from "@/components/chat-input";
+
+// Use dynamic import with SSR disabled to thoroughly resolve hydration mismatches
+const ChatInput = dynamic(
+    () => import("@/components/chat-input").then((mod) => mod.ChatInput),
+    { ssr: false, loading: () => <div className="h-[90px] border-t border-[#4a3f32] bg-[#1a1510]" /> }
+);
 
 // Use dynamic import with SSR disabled to thoroughly resolve hydration mismatches
 const WelcomeScreen = dynamic(
