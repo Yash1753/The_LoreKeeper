@@ -1,11 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { useChat } from "@ai-sdk/react";
 import { SiteHeader } from "@/components/site-header";
 import { ChatMessages } from "@/components/chat-messages";
 import { ChatInput } from "@/components/chat-input";
-import { WelcomeScreen } from "@/components/welcome-screen";
+
+// Use dynamic import with SSR disabled to thoroughly resolve hydration mismatches
+const WelcomeScreen = dynamic(
+    () => import("@/components/welcome-screen").then((mod) => mod.WelcomeScreen),
+    { ssr: false }
+);
 
 export function ChatPage() {
     const [input, setInput] = useState("");
@@ -65,7 +71,7 @@ export function ChatPage() {
                     handleSubmit={handleSubmit}
                     isLoading={isLoading}
                     stop={stop}
-                    autoFocus={hasStartedChatting}
+                    autoFocus={true}
                 />
             </main>
         </div>

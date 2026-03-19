@@ -24,7 +24,7 @@ export function ThinkingIndicator() {
                         className="text-sm italic text-[#b8a080]"
                         style={{ fontFamily: "'Crimson Text', serif" }}
                     >
-                        Consulting the ancient tomes
+                        The Lorekeeper whispers...
                     </span>
                     <span className="flex gap-1">
                         <span className="h-1.5 w-1.5 rounded-full bg-[#d4a853] dot-bounce-1" />

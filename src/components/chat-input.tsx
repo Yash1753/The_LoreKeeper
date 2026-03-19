@@ -49,16 +49,16 @@ export function ChatInput({
                 onSubmit={handleSubmit}
                 className="mx-auto flex max-w-3xl items-end gap-3"
             >
-                <div className="relative flex-1">
+                <div className="relative flex-1 group">
                     <textarea
                         ref={textareaRef}
                         value={input}
                         onChange={handleInputChange}
                         onKeyDown={handleKeyDown}
-                        placeholder="Ask The Lorekeeper anything about D&D 5e..."
+                        placeholder="Ask anything about spells, monsters, or rules..."
                         rows={1}
-                        className="w-full resize-none rounded-xl border border-[#4a3f32] bg-[#2a2118] px-4 py-3 text-[#e8d5b7] placeholder-[#b8a080]/60 transition-all duration-200 focus:border-[#d4a853] focus:outline-none focus:ring-1 focus:ring-[#d4a853]/50"
-                        style={{ fontFamily: "'Crimson Text', serif", fontSize: "1.05rem" }}
+                        className="w-full resize-none rounded-xl border-2 border-[#4a3f32] bg-[#2a2118] px-5 py-4 text-[#e8d5b7] placeholder-[#b8a080]/40 transition-all duration-300 focus:border-[#d4a853] focus:outline-none focus:ring-4 focus:ring-[#d4a853]/10 min-h-[60px] shadow-lg group-hover:border-[#4a3f32]/80"
+                        style={{ fontFamily: "'Crimson Text', serif", fontSize: "1.1rem" }}
                         disabled={isLoading}
                         autoFocus={autoFocus}
                     />
@@ -68,7 +68,7 @@ export function ChatInput({
                     <Button
                         type="button"
                         onClick={stop}
-                        className="h-12 w-12 shrink-0 rounded-xl border border-[#c0392b]/50 bg-[#c0392b]/20 text-[#e8d5b7] hover:bg-[#c0392b]/30 transition-colors"
+                        className="h-[60px] w-[60px] shrink-0 rounded-xl border-2 border-[#c0392b]/50 bg-[#c0392b]/10 text-[#e8d5b7] hover:bg-[#c0392b]/20 transition-all duration-300"
                     >
                         ■
                     </Button>
@@ -76,9 +76,10 @@ export function ChatInput({
                     <Button
                         type="submit"
                         disabled={!input.trim()}
-                        className="h-12 w-12 shrink-0 rounded-xl bg-[#d4a853] text-[#1a1510] hover:bg-[#e0b960] disabled:opacity-30 disabled:hover:bg-[#d4a853] transition-colors"
+                        className="h-[60px] px-6 shrink-0 rounded-xl bg-[#d4a853] text-[#1a1510] hover:bg-[#e0b960] disabled:opacity-20 disabled:hover:bg-[#d4a853] transition-all duration-300 font-bold shadow-[0_4px_12px_rgba(212,168,83,0.2)]"
+                        style={{ fontFamily: "'Cinzel', serif" }}
                     >
-                        🎲
+                        Ask →
                     </Button>
                 )}
             </form>

@@ -15,26 +15,20 @@ export function WelcomeScreen({ onSelectQuestion }: WelcomeScreenProps) {
                 <div className="mb-4 text-6xl">🎲</div>
 
                 <h1
-                    className="mb-2 text-4xl font-bold tracking-wide text-[#d4a853]"
+                    className="mb-2 text-5xl font-bold tracking-tight text-[#d4a853] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
                     style={{ fontFamily: "'Cinzel', serif" }}
                 >
                     The Lorekeeper
                 </h1>
 
                 <p
-                    className="text-lg text-[#b8a080]"
+                    className="text-xl text-[#b8a080]/90"
                     style={{ fontFamily: "'Crimson Text', serif" }}
                 >
                     Your D&D 5e Rules Companion
                 </p>
 
-                <p
-                    className="mt-2 max-w-md text-sm text-[#b8a080]/60"
-                    style={{ fontFamily: "'Crimson Text', serif" }}
-                >
-                    Ask me about spells, monsters, classes, races, conditions, and
-                    mechanics from the Systems Reference Document.
-                </p>
+                <p className="mt-4 max-w-md text-sm text-[#b8a080]/40 italic" style={{ fontFamily: 'var(--font-crimson)' }}>Ask me about spells, monsters, classes, races, and mechanics from the Systems Reference Document.</p>
             </div>
 
             {/* Suggested Questions Grid */}
@@ -42,7 +36,7 @@ export function WelcomeScreen({ onSelectQuestion }: WelcomeScreenProps) {
                 {suggestedQuestions.map((question, index) => (
                     <Card
                         key={index}
-                        className="group cursor-pointer border-[#4a3f32] bg-[#2a2118] p-4 transition-all duration-200 hover:border-[#d4a853]/50 hover:bg-[#3a2f24] hover:shadow-[0_0_15px_rgba(212,168,83,0.1)]"
+                        className="group cursor-pointer border-[#4a3f32]/50 bg-[#2a2118]/50 p-4 transition-all duration-300 hover:border-[#d4a853]/40 hover:bg-[#3a2f24] hover:shadow-[0_0_20px_rgba(212,168,83,0.08)]"
                         onClick={() => onSelectQuestion(question)}
                     >
                         <p
