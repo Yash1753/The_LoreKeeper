@@ -54,14 +54,12 @@ export function ChatMessages({ messages, isLoading }: ChatMessagesProps) {
 
     return (
         <div className="flex-1 overflow-y-auto px-4" ref={scrollRef}>
-            <div className="mx-auto max-w-3xl py-6 pb-20 space-y-12">
-                {messageGroups.map((group, groupIndex) => (
-                    <div key={groupIndex} className="space-y-4 animate-fade-in relative">
-                        {/* Visual Connector Line */}
-                        {group.user && group.bot && (
-                            <div className="absolute left-[15px] top-[32px] bottom-[32px] w-[2px] bg-gradient-to-b from-[#4a3f32] to-transparent hidden md:block" />
-                        )}
+            <div className="mx-auto max-w-3xl py-6 pb-20 space-y-12 relative">
+                {/* Continuous Timeline Line */}
+                <div className="absolute left-[15px] top-10 bottom-24 w-[2px] bg-gradient-to-b from-[#d4a853] via-[#4a3f32] to-transparent hidden md:block timeline-glow opacity-50" />
 
+                {messageGroups.map((group, groupIndex) => (
+                    <div key={groupIndex} className="space-y-3 animate-fade-in relative">
                         {group.user && (
                             <div className="animate-fade-in-up">
                                 <UserMessage content={getMessageText(group.user)} />

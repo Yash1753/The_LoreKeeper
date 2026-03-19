@@ -17,7 +17,7 @@ export function BotMessage({ content, id }: BotMessageProps) {
             </Avatar>
 
             {/* Message Content */}
-            <div className="flex-1 space-y-2">
+            <div className="flex-1 space-y-2 relative group">
                 <p
                     className="text-xs font-semibold text-[#d4a853]"
                     style={{ fontFamily: "'Cinzel', serif" }}
@@ -25,13 +25,17 @@ export function BotMessage({ content, id }: BotMessageProps) {
                     The Lorekeeper
                 </p>
 
-                <div
-                    className="prose prose-invert max-w-none rounded-2xl border border-[#4a3f32] bg-[#2a2118]/40 px-5 py-4 text-[#e8d5b7] shadow-sm prose-headings:font-bold prose-headings:text-[#d4a853] prose-strong:text-[#e8d5b7] prose-code:rounded prose-code:bg-[#3a2f24] prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[#d4a853] prose-pre:border prose-pre:border-[#4a3f32] prose-pre:bg-[#2a2118]"
-                    style={{ fontFamily: "'Crimson Text', serif", fontSize: "1.1rem" }}
-                    dangerouslySetInnerHTML={{ __html: formatMarkdown(content) }}
-                />
+                <div className="relative">
+                    <div
+                        className="prose prose-invert max-w-none rounded-2xl border border-[#4a3f32] bg-[#2a2118]/40 px-5 py-4 text-[#e8d5b7] shadow-sm prose-headings:font-bold prose-headings:text-[#d4a853] prose-strong:text-[#e8d5b7] prose-code:rounded prose-code:bg-[#3a2f24] prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[#d4a853] prose-pre:border prose-pre:border-[#4a3f32] prose-pre:bg-[#2a2118]"
+                        style={{ fontFamily: "'Crimson Text', serif", fontSize: "1.1rem" }}
+                        dangerouslySetInnerHTML={{ __html: formatMarkdown(content) }}
+                    />
 
-                <MessageActions content={content} messageId={id} />
+                    <div className="absolute top-2 right-2 opacity-0 transition-opacity group-hover:opacity-100">
+                        <MessageActions content={content} messageId={id} />
+                    </div>
+                </div>
             </div>
         </div>
     );
