@@ -39,7 +39,7 @@ ${context}
  * Suggested questions to show on the welcome screen.
  */
 export const suggestedQuestions = [
-    "What are you and How can you assist me?",
+    "What can you help me with in D&D?",
     "What does the Fireball spell do?",
     "What are the conditions in D&D?",
     "What's the difference between a long rest and short rest?",
