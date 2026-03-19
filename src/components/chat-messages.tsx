@@ -36,26 +36,52 @@ export function ChatMessages({ messages, isLoading }: ChatMessagesProps) {
         }
     }, [messages, isLoading]);
 
+    // Group messages into Q&A pairs
+    const messageGroups: { user?: UIMessage; bot?: UIMessage }[] = [];
+    for (let i = 0; i < messages.length; i++) {
+        if (messages[i].role === "user") {
+            const nextMessage = messages[i + 1];
+            if (nextMessage && nextMessage.role === "assistant") {
+                messageGroups.push({ user: messages[i], bot: nextMessage });
+                i++;
+            } else {
+                messageGroups.push({ user: messages[i] });
+            }
+        } else {
+            messageGroups.push({ bot: messages[i] });
+        }
+    }
+
     return (
         <div className="flex-1 overflow-y-auto px-4" ref={scrollRef}>
-            <div className="mx-auto max-w-3xl space-y-6 py-6 pb-20">
-                {messages.map((message) => {
-                    const text = getMessageText(message);
-                    return (
-                        <div key={message.id} className="animate-fade-in">
-                            {message.role === "user" ? (
-                                <UserMessage content={text} />
-                            ) : (
-                                <BotMessage content={text} id={message.id} />
-                            )}
-                        </div>
-                    );
-                })}
+            <div className="mx-auto max-w-3xl py-6 pb-20 space-y-12">
+                {messageGroups.map((group, groupIndex) => (
+                    <div key={groupIndex} className="space-y-4 animate-fade-in relative">
+                        {/* Visual Connector Line */}
+                        {group.user && group.bot && (
+                            <div className="absolute left-[15px] top-[32px] bottom-[32px] w-[2px] bg-gradient-to-b from-[#4a3f32] to-transparent hidden md:block" />
+                        )}
+
+                        {group.user && (
+                            <div className="animate-fade-in-up">
+                                <UserMessage content={getMessageText(group.user)} />
+                            </div>
+                        )}
+
+                        {group.bot && (
+                            <div className="animate-fade-in-up delay-75">
+                                <BotMessage content={getMessageText(group.bot)} id={group.bot.id} />
+                            </div>
+                        )}
+                    </div>
+                ))}
 
                 {isLoading &&
                     messages.length > 0 &&
                     messages[messages.length - 1].role === "user" && (
-                        <ThinkingIndicator />
+                        <div className="animate-fade-in-up delay-75">
+                            <ThinkingIndicator />
+                        </div>
                     )}
 
                 <div ref={bottomRef} className="h-px w-full" />

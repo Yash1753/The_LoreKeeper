@@ -26,8 +26,8 @@ export function BotMessage({ content, id }: BotMessageProps) {
                 </p>
 
                 <div
-                    className="prose prose-invert max-w-none text-[#e8d5b7] prose-headings:font-bold prose-headings:text-[#d4a853] prose-strong:text-[#e8d5b7] prose-code:rounded prose-code:bg-[#3a2f24] prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[#d4a853] prose-pre:border prose-pre:border-[#4a3f32] prose-pre:bg-[#2a2118]"
-                    style={{ fontFamily: "'Crimson Text', serif", fontSize: "1.05rem" }}
+                    className="prose prose-invert max-w-none rounded-2xl border border-[#4a3f32] bg-[#2a2118]/40 px-5 py-4 text-[#e8d5b7] shadow-sm prose-headings:font-bold prose-headings:text-[#d4a853] prose-strong:text-[#e8d5b7] prose-code:rounded prose-code:bg-[#3a2f24] prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[#d4a853] prose-pre:border prose-pre:border-[#4a3f32] prose-pre:bg-[#2a2118]"
+                    style={{ fontFamily: "'Crimson Text', serif", fontSize: "1.1rem" }}
                     dangerouslySetInnerHTML={{ __html: formatMarkdown(content) }}
                 />
 
