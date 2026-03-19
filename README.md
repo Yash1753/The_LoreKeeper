@@ -48,9 +48,32 @@ The knowledge base contains **~2,000 chunks** built from the [5e SRD JSON Databa
 
 ## 🚀 Getting Started
 
-First, run the development server:
-
+### 1. Clone the repository
 ```bash
+git clone https://github.com/Yash1753/The_LoreKeeper.git
+cd The_LoreKeeper/dnd-lorekeeper
+```
+
+### 2. Set up environment variables
+Create a `.env.local` file in the root directory and add the following keys:
+```env
+# Groq: For Llama 3.3 70B inference
+GROQ_API_KEY=your_groq_api_key
+
+# HuggingFace: For vector embeddings
+HUGGINGFACE_API_TOKEN=your_huggingface_token
+
+# Pinecone: For vector storage and retrieval
+PINECONE_API_KEY=your_pinecone_api_key
+PINECONE_INDEX_NAME=your_index_name 
+```
+
+> [!NOTE]  
+> Your Pinecone index should be configured with **384 dimensions** (to match the `all-MiniLM-L6-v2` model) and **Cosine** similarity.
+
+### 3. Install dependencies and run
+```bash
+npm install
 npm run dev
 ```
 
