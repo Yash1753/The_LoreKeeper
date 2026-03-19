@@ -55,19 +55,23 @@ export function ChatMessages({ messages, isLoading }: ChatMessagesProps) {
     return (
         <div className="flex-1 overflow-y-auto px-4" ref={scrollRef}>
             <div className="mx-auto max-w-3xl py-6 pb-20 space-y-12 relative">
-                {/* Continuous Timeline Line */}
-                <div className="absolute left-[15px] top-10 bottom-24 w-[2px] bg-gradient-to-b from-[#d4a853] via-[#4a3f32] to-transparent hidden md:block timeline-glow opacity-50" />
+                {/* Continuous Timeline Spine */}
+                <div className="absolute left-[15px] top-10 bottom-24 w-[2px] bg-gradient-to-b from-[#d4a853] via-[#4a3f32] to-transparent hidden md:block timeline-glow" />
 
                 {messageGroups.map((group, groupIndex) => (
-                    <div key={groupIndex} className="space-y-3 animate-fade-in relative">
+                    <div key={groupIndex} className="space-y-1.5 animate-fade-in relative">
                         {group.user && (
-                            <div className="animate-fade-in-up">
+                            <div className="animate-fade-in-up relative">
+                                {/* Spine Node for User */}
+                                <div className="absolute left-[-18.5px] top-[14px] h-2 w-2 rounded-full border border-[#d4a853] bg-[#1a1510] hidden md:block z-10" />
                                 <UserMessage content={getMessageText(group.user)} />
                             </div>
                         )}
 
                         {group.bot && (
-                            <div className="animate-fade-in-up delay-75">
+                            <div className="animate-fade-in-up delay-75 relative">
+                                {/* Spine Node for Bot */}
+                                <div className="absolute left-[-18.5px] top-[14px] h-2 w-2 rounded-full border border-[#d4a853] bg-[#1a1510] hidden md:block z-10" />
                                 <BotMessage content={getMessageText(group.bot)} id={group.bot.id} />
                             </div>
                         )}

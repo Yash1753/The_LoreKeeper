@@ -44,10 +44,10 @@ export function ChatInput({
     };
 
     return (
-        <div className="border-t border-[#4a3f32] bg-[#1a1510] p-4">
+        <div className="border-t border-[#4a3f32] bg-[#1a1510] px-4 py-4">
             <form
                 onSubmit={handleSubmit}
-                className="mx-auto flex max-w-3xl items-end gap-3"
+                className="mx-auto flex max-w-3xl items-center gap-3"
             >
                 <div className="relative flex-1 group">
                     <textarea
@@ -56,8 +56,8 @@ export function ChatInput({
                         onChange={handleInputChange}
                         onKeyDown={handleKeyDown}
                         placeholder="Ask anything about spells, monsters, or rules..."
-                        rows={1}
-                        className="w-full resize-none rounded-xl border-2 border-[#4a3f32] bg-[#2a2118] px-5 py-4 text-[#e8d5b7] placeholder-[#b8a080]/40 transition-all duration-300 focus:border-[#d4a853] focus:outline-none focus:ring-4 focus:ring-[#d4a853]/10 min-h-[60px] shadow-lg group-hover:border-[#4a3f32]/80"
+                        rows={2}
+                        className="w-full resize-none rounded-xl border-2 border-[#4a3f32] bg-[#2a2118] px-5 py-[14px] text-[#e8d5b7] placeholder-[#b8a080]/40 transition-all duration-300 focus:border-[#d4a853] focus:outline-none focus:ring-4 focus:ring-[#d4a853]/10 min-h-[60px] shadow-lg group-hover:border-[#4a3f32]/80"
                         style={{ fontFamily: "'Crimson Text', serif", fontSize: "1.1rem" }}
                         disabled={isLoading}
                         autoFocus={autoFocus}
@@ -76,7 +76,7 @@ export function ChatInput({
                     <Button
                         type="submit"
                         disabled={!input.trim()}
-                        className="h-[60px] px-6 shrink-0 rounded-xl bg-[#d4a853] text-[#1a1510] hover:bg-[#e0b960] disabled:opacity-20 disabled:hover:bg-[#d4a853] transition-all duration-300 font-bold shadow-[0_4px_12px_rgba(212,168,83,0.2)]"
+                        className="h-[60px] px-6 shrink-0 rounded-xl border-2 border-transparent bg-[#d4a853] text-[#1a1510] hover:bg-[#e0b960] disabled:opacity-20 disabled:hover:bg-[#d4a853] transition-all duration-300 font-bold shadow-[0_4px_12px_rgba(212,168,83,0.2)] active:scale-95"
                         style={{ fontFamily: "'Cinzel', serif" }}
                     >
                         Ask →
@@ -84,9 +84,6 @@ export function ChatInput({
                 )}
             </form>
 
-            <p className="mx-auto mt-2 max-w-3xl text-center text-xs text-[#b8a080]/50">
-                The Lorekeeper references the D&D 5e SRD. Not affiliated with Wizards of the Coast.
-            </p>
         </div>
     );
 }
