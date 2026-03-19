@@ -1,6 +1,7 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -45,85 +46,160 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* D&D Fantasy Theme Colors */
+  --color-dnd-bg-primary: #1a1510;
+  --color-dnd-bg-secondary: #2a2118;
+  --color-dnd-bg-tertiary: #3a2f24;
+  --color-dnd-text-primary: #e8d5b7;
+  --color-dnd-text-secondary: #b8a080;
+  --color-dnd-text-accent: #d4a853;
+  --color-dnd-gold: #d4a853;
+  --color-dnd-red: #c0392b;
+  --color-dnd-blue: #2980b9;
+  --color-dnd-green: #27ae60;
+  --color-dnd-purple: #8e44ad;
+  --color-dnd-border: #4a3f32;
+  --color-dnd-border-accent: #d4a853;
+
+  /* D&D Typography */
+  --font-cinzel: 'Cinzel', serif;
+  --font-crimson: 'Crimson Text', serif;
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
+  --background: #1a1510;
+  --foreground: #e8d5b7;
+  --card: #2a2118;
+  --card-foreground: #e8d5b7;
+  --popover: #2a2118;
+  --popover-foreground: #e8d5b7;
+  --primary: #d4a853;
+  --primary-foreground: #1a1510;
+  --secondary: #3a2f24;
+  --secondary-foreground: #e8d5b7;
+  --muted: #3a2f24;
+  --muted-foreground: #b8a080;
+  --accent: #3a2f24;
+  --accent-foreground: #d4a853;
+  --destructive: #c0392b;
+  --border: #4a3f32;
+  --input: #4a3f32;
+  --ring: #d4a853;
+  --chart-1: #d4a853;
+  --chart-2: #c0392b;
+  --chart-3: #2980b9;
+  --chart-4: #27ae60;
+  --chart-5: #8e44ad;
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar: #2a2118;
+  --sidebar-foreground: #e8d5b7;
+  --sidebar-primary: #d4a853;
+  --sidebar-primary-foreground: #1a1510;
+  --sidebar-accent: #3a2f24;
+  --sidebar-accent-foreground: #d4a853;
+  --sidebar-border: #4a3f32;
+  --sidebar-ring: #d4a853;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+    font-family: 'Crimson Text', serif;
   }
+
   html {
     @apply font-sans;
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Cinzel', serif;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1510;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a3f32;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4a853;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(212, 168, 83, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(212, 168, 83, 0.6);
+  }
+}
+
+@keyframes dot-bounce {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.dot-bounce-1 {
+  animation: dot-bounce 1.4s infinite ease-in-out both;
+  animation-delay: -0.32s;
+}
+
+.dot-bounce-2 {
+  animation: dot-bounce 1.4s infinite ease-in-out both;
+  animation-delay: -0.16s;
+}
+
+.dot-bounce-3 {
+  animation: dot-bounce 1.4s infinite ease-in-out both;
 }
