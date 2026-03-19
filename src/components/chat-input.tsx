@@ -55,7 +55,7 @@ export function ChatInput({
                         value={input}
                         onChange={handleInputChange}
                         onKeyDown={handleKeyDown}
-                        placeholder="Ask anything about spells, monsters, or rules..."
+                        placeholder="Ask about spells, monsters, or uncover hidden rules…"
                         rows={2}
                         className="w-full resize-none rounded-xl border-2 border-[#4a3f32] bg-[#2a2118] px-5 py-[14px] text-[#e8d5b7] placeholder-[#b8a080]/40 transition-all duration-300 focus:border-[#d4a853] focus:outline-none focus:ring-4 focus:ring-[#d4a853]/10 min-h-[60px] shadow-lg group-hover:border-[#4a3f32]/80"
                         style={{ fontFamily: "'Crimson Text', serif", fontSize: "1.1rem" }}

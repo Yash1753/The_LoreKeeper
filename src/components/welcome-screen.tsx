@@ -36,7 +36,7 @@ export function WelcomeScreen({ onSelectQuestion }: WelcomeScreenProps) {
                 {suggestedQuestions.map((question, index) => (
                     <Card
                         key={index}
-                        className="group cursor-pointer border-[#4a3f32]/50 bg-[#2a2118]/50 p-4 transition-all duration-300 hover:border-[#d4a853]/40 hover:bg-[#3a2f24] hover:shadow-[0_0_20px_rgba(212,168,83,0.08)]"
+                        className="group cursor-pointer border-[#4a3f32]/50 bg-[#2a2118]/50 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#d4a853]/60 hover:bg-[#32281e] hover:shadow-[0_8px_30px_rgba(212,168,83,0.15)] active:scale-[0.98]"
                         onClick={() => onSelectQuestion(question)}
                     >
                         <p
