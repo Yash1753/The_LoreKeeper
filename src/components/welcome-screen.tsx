@@ -29,6 +29,7 @@ export function WelcomeScreen({ onSelectQuestion }: WelcomeScreenProps) {
                 </p>
 
                 <p className="mt-4 max-w-md text-sm text-[#b8a080]/40 italic" style={{ fontFamily: 'var(--font-crimson)' }}>Ask me about spells, monsters, classes, races, and mechanics from the Systems Reference Document.</p>
+                <p className="mt-4 max-w-md text-sm text-[#b8a080]/40 italic" style={{ fontFamily: 'var(--font-crimson)' }}>Explain spells • Compare mechanics • Understand combat instantly</p>
             </div>
 
             <div className="grid w-full max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2">
