@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Github } from "lucide-react";
 
 export function SiteHeader() {
     return (
@@ -26,10 +27,19 @@ export function SiteHeader() {
                 </div>
             </button>
 
-            <div className="flex items-center gap-2">
-                <span className="rounded-full border border-[#4a3f32] bg-[#2a2118] px-3 py-1 text-xs text-[#b8a080]">
+            <div className="flex items-center gap-4">
+                <span className="hidden sm:inline-block rounded-full border border-[#4a3f32] bg-[#2a2118] px-3 py-1 text-xs text-[#b8a080]">
                     SRD 5.1
                 </span>
+                <a
+                    href="https://github.com/Yash1753/The_LoreKeeper"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center rounded-lg border border-[#4a3f32] bg-[#2a2118] p-2 text-[#b8a080] transition-all hover:border-[#d4a853]/50 hover:bg-[#3a2f24] hover:text-[#d4a853] active:scale-95"
+                    title="View on GitHub"
+                >
+                    <Github className="h-5 w-5" />
+                </a>
             </div>
         </header>
     );
