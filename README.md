@@ -1,83 +1,156 @@
 # 🎲 The Lorekeeper
 
-The Lorekeeper is a dedicated Dungeons & Dragons 5th Edition (D&D 5e) rules companion and chatbot. It is designed to assist players and Dungeon Masters by providing quick access to rules, spells, monsters, and mechanics from the Systems Reference Document (SRD).
+**The Lorekeeper** is a purpose-built AI chatbot for **Dungeons &
+Dragons 5th Edition (D&D 5e)**.\
+It helps players and Dungeon Masters instantly understand rules, spells,
+monsters, and mechanics from the **Systems Reference Document (SRD)**
+--- without digging through long manuals.
+
+------------------------------------------------------------------------
 
 ## ⚔️ Why This Project?
 
-I've always been drawn to games especially the worlds, the mechanics, the depth behind every system. When I played **Baldur's Gate 3** (Game of the Year 2023), I was completely captivated. It was my gateway into the world of Dungeons & Dragons 5th Edition. Every spell, every saving throw, every class feature in BG3 traces back to the D&D 5e ruleset, and I found myself constantly looking things up mid-session.
+I've always been drawn to games --- the worlds, the mechanics, and the
+depth behind every system.
 
-That experience is exactly why I chose this topic for my chatbot. D&D 5e has a massive rulebook, hundreds of spells, complex monster stat blocks, and mechanics that interact in non-obvious ways. A chatbot that can instantly look up rules and explain them in plain language isn't just a technical exercise, it's something I genuinely wanted to build.
+While playing **Baldur's Gate 3 (Game of the Year 2023)**, I constantly
+found myself pausing to look up spell effects, saving throws, and class
+features. Since BG3 is built on D&D 5e rules, this friction came from
+how dense and scattered the rule system is.
+
+> **What if you could just ask and instantly understand any D&D rule in
+> plain language?**
+
+That idea led to The Lorekeeper --- a **focused assistant for rule
+discovery and decision-making during gameplay**.
+
+------------------------------------------------------------------------
+
+## 🧠 UX & Frontend Thinking
+
+This project focuses heavily on **how the chatbot is experienced**, not
+just how it works.
+
+### 🎯 Key Design Decisions
+
+-   **Guided Onboarding**
+    -   Starter prompts reduce decision fatigue and guide first
+        interaction
+-   **Capability Framing**
+    -   Clearly communicates value: \> Explain spells • Compare
+        mechanics • Understand combat instantly
+-   **Thematic Experience**
+    -   Designed as a *Lorekeeper* persona for immersive interaction
+-   **Strong Primary Action**
+    -   Input box is visually dominant and easy to use
+-   **Conversation Clarity**
+    -   Timeline-style chat improves readability and flow
+-   **Streaming Feedback**
+    -   Real-time responses reduce perceived latency
+-   **Post-Response Interaction (Key UX Improvement)**
+    -   Quick actions like *Simplify*, *Example*, and *Compare* reduce
+        friction
+    -   "Continue Exploring" suggestions guide users deeper into the
+        topic
+    -   Transforms the chatbot into an **interactive learning system**
+
+------------------------------------------------------------------------
 
 ## ⚙️ How It Works
 
-The Lorekeeper uses a **Retrieval-Augmented Generation (RAG)** architecture to provide accurate D&D 5e rule interpretations.
+The Lorekeeper uses a **Retrieval-Augmented Generation (RAG)**
+architecture.
 
-### 🔄 The Chat Flow
+### 🔄 Chat Flow
 
-1.  **User Input**: The player asks a question about a rule, spell, or monster.
-2.  **Semantic Embedding**: The query is converted into a high-dimensional vector using HuggingFace's `all-MiniLM-L6-v2` model.
-3.  **Vector Search**: The system searches **Pinecone** for the top-5 most relevant rule chunks from the SRD.
-4.  **Context Construction**: The retrieved rule text is injected into a specialized "Lorekeeper" system prompt.
-5.  **Inference**: The augmented prompt is sent to **Llama 3.3 70B** (via Groq) for high-speed, accurate rule parsing.
-6.  **Streaming Response**: The AI's response is streamed back to the frontend in real-time using the **AI SDK**.
+1.  User Input\
+2.  Embedding using `all-MiniLM-L6-v2`\
+3.  Vector Search via Pinecone\
+4.  Context Injection\
+5.  LLM Inference (Llama 3.3 via Groq)\
+6.  Streaming Response via AI SDK
 
-### 📦 The Knowledge Base
+------------------------------------------------------------------------
 
-The ruleset consists of **~2,000 unique records** from the [5e SRD JSON Database](https://github.com/5e-bits/5e-database).Each record is:
-1.  **Normalized**: Structured JSON is converted into a readable, markdown-ready format.
-2.  **Embedded**: Batch-processed into vectors for semantic indexing.
-3.  **Indexed**: Stored in a specialized vector database for sub-second retrieval.
+## 📦 Knowledge Base
 
-## 📚 Knowledge Base
+-   \~2,000 structured chunks from the\
+    https://github.com/5e-bits/5e-database
+-   Covers spells, monsters, classes, races, conditions, equipment,
+    feats, and core rules
 
-The knowledge base contains **~2,000 chunks** built from the [5e SRD JSON Database](https://github.com/5e-bits/5e-database) (Open Game License). Chunks cover spells, monsters, classes, races, conditions, equipment, feats, magic items, and core rules.
+------------------------------------------------------------------------
 
 ## 📜 Features
 
-- **Instant Rule Access**: Ask about any spell, class, or monster.
-- **D&D 5e SRD Knowledge**: Built-in support for the full Systems Reference Document.
-- **Smooth Interface**: A thematic, immersive chat experience designed for fantasy enthusiasts.
-- **Suggested Queries**: Quickly find information about common mechanics like AC, Leveling, or specific spells.
+-   ⚡ Context-aware rule explanations grounded in SRD\
+-   🧠 Guided exploration with curated starter prompts\
+-   🎲 Domain-specific chatbot (not a generic wrapper)\
+-   ⚡ Streaming responses for better responsiveness\
+-   🎨 Thematic fantasy UI\
+-   🔁 Interactive follow-ups via quick actions
+
+------------------------------------------------------------------------
+
+## ⚖️ Challenges & Decisions
+
+-   Designing a chatbot that feels purpose-built, not generic\
+-   Structuring SRD data into meaningful retrieval chunks\
+-   Balancing speed vs accuracy using Groq + RAG\
+-   Ensuring responses are interpretable, not just raw data
+
+------------------------------------------------------------------------
 
 ## 🛠️ Built With
 
-- **Next.js**: For a fast, responsive web application.
-- **AI SDK**: Powering the intelligent rule-parsing and conversational interface.
-- **Tailwind CSS**: For a custom, parchment-inspired fantasy aesthetic.
-- **SRD Data**: Leveraging a comprehensive database of D&D 5e rules.
+-   Next.js\
+-   Tailwind CSS\
+-   AI SDK\
+-   Groq (Llama 3.3 70B)\
+-   Pinecone\
+-   HuggingFace
+
+------------------------------------------------------------------------
 
 ## 🚀 Getting Started
 
-### 1. Clone the repository
-```bash
+### Clone the repository
+
+``` bash
 git clone https://github.com/Yash1753/The_LoreKeeper.git
 cd The_LoreKeeper/dnd-lorekeeper
 ```
 
-### 2. Set up environment variables
-Create a `.env.local` file in the root directory and add the following keys:
-```env
-# Groq: For Llama 3.3 70B inference
+### Environment variables
+
+``` env
 GROQ_API_KEY=your_groq_api_key
-
-# HuggingFace: For vector embeddings
 HUGGINGFACE_API_TOKEN=your_huggingface_token
-
-# Pinecone: For vector storage and retrieval
 PINECONE_API_KEY=your_pinecone_api_key
-PINECONE_INDEX_NAME=your_index_name 
+PINECONE_INDEX_NAME=your_index_name
 ```
 
-> [!NOTE]  
-> Your Pinecone index should be configured with **384 dimensions** (to match the `all-MiniLM-L6-v2` model) and **Cosine** similarity.
+### Run locally
 
-### 3. Install dependencies and run
-```bash
+``` bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+------------------------------------------------------------------------
 
----
-*The Lorekeeper references the D&D 5e SRD. Not affiliated with Wizards of the Coast.*
+## 🎥 Loom Walkthrough
+
+(Add Loom link)
+
+------------------------------------------------------------------------
+
+## 🧠 What This Project Demonstrates
+
+-   Product-focused AI design\
+-   RAG implementation\
+-   UX-driven chatbot systems
+
+------------------------------------------------------------------------
+
+*Not affiliated with Wizards of the Coast.*

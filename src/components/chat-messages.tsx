@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import { BotMessage } from "@/components/bot-message";
 import { UserMessage } from "@/components/user-message";
 import { ThinkingIndicator } from "@/components/thinking-indicator";
+import { FollowUpSuggestions } from "@/components/follow-up-suggestions";
 
 /** Extract the concatenated text content from a UIMessage's parts array. */
 function getMessageText(message: UIMessage): string {
@@ -17,9 +18,10 @@ function getMessageText(message: UIMessage): string {
 interface ChatMessagesProps {
     messages: UIMessage[];
     isLoading: boolean;
+    onFollowUp?: (question: string) => void;
 }
 
-export function ChatMessages({ messages, isLoading }: ChatMessagesProps) {
+export function ChatMessages({ messages, isLoading, onFollowUp }: ChatMessagesProps) {
     const scrollRef = useRef<HTMLDivElement>(null);
     const bottomRef = useRef<HTMLDivElement>(null);
 
@@ -73,6 +75,14 @@ export function ChatMessages({ messages, isLoading }: ChatMessagesProps) {
                                 {/* Spine Node for Bot */}
                                 <div className="absolute left-[-18.5px] top-[14px] h-2 w-2 rounded-full border border-[#d4a853] bg-[#1a1510] hidden md:block z-10" />
                                 <BotMessage content={getMessageText(group.bot)} id={group.bot.id} />
+
+                                {/* Follow-up suggestions after the LAST bot response when idle */}
+                                {!isLoading && onFollowUp && groupIndex === messageGroups.length - 1 && (
+                                    <FollowUpSuggestions
+                                        lastBotMessage={getMessageText(group.bot)}
+                                        onSelect={onFollowUp}
+                                    />
+                                )}
                             </div>
                         )}
                     </div>
