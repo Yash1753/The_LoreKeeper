@@ -3,14 +3,13 @@
 **The Lorekeeper** is a purpose-built AI chatbot for **Dungeons &
 Dragons 5th Edition (D&D 5e)**.\
 It helps players and Dungeon Masters instantly understand rules, spells,
-monsters, and mechanics from the **Systems Reference Document (SRD)**
---- without digging through long manuals.
+monsters, and mechanics from the **Systems Reference Document (SRD)**.
 
 ------------------------------------------------------------------------
 
 ## ⚔️ Why This Project?
 
-I've always been drawn to games --- the worlds, the mechanics, and the
+I've always been drawn to games, the worlds, the mechanics, and the
 depth behind every system.
 
 While playing **Baldur's Gate 3 (Game of the Year 2023)**, I constantly
@@ -21,7 +20,7 @@ how dense and scattered the rule system is.
 > **What if you could just ask and instantly understand any D&D rule in
 > plain language?**
 
-That idea led to The Lorekeeper --- a **focused assistant for rule
+That idea led to The Lorekeeper which is a **focused assistant for rule
 discovery and decision-making during gameplay**.
 
 ------------------------------------------------------------------------
