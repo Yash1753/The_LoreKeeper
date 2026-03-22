@@ -140,7 +140,7 @@ npm run dev
 
 ## 🎥 Loom Walkthrough
 
-(Add Loom link)
+https://www.loom.com/share/03db4f989f0b4ff3b5c71a93c2f52d45
 
 ------------------------------------------------------------------------
 
