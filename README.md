@@ -152,4 +152,4 @@ https://www.loom.com/share/03db4f989f0b4ff3b5c71a93c2f52d45
 
 ------------------------------------------------------------------------
 
-*Not affiliated with Wizards of the Coast.*
+* **Not affiliated with Wizards of the Coast.*
